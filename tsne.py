@@ -30,6 +30,7 @@ if __name__=="__main__":
     output_channels = 2
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
+    # TODO: add correct path to dataset
     train_dataset, val_dataset = get_datasets(f"hist_data", train_transforms, val_transforms)
     val_dataset = torch.utils.data.Subset(val_dataset, random.sample(range(len(val_dataset)), 1500))
     train_loader, val_loader = get_dataloaders(train_dataset, val_dataset, batch_size)

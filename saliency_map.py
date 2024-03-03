@@ -33,6 +33,7 @@ if __name__=="__main__":
 
     model.eval()
 
+    # TODO: add correct path to dataset
     train_dataset, val_dataset = get_datasets(f"hist_data", train_transforms, val_transforms)
     val_dataset = torch.utils.data.Subset(val_dataset, random.sample(range(len(val_dataset)), 25))
     train_loader, val_loader = get_dataloaders(train_dataset, val_dataset, 1)
